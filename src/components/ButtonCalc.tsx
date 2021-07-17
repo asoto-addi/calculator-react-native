@@ -5,13 +5,16 @@ import {styles} from '../theme/appTheme';
 interface Props {
   text: string;
   color?: string;
-  widthButton?: boolean
+  widthButton?: boolean,
+  action: (numberText:string) => void
 }
 
-export const ButtonCalc = ({text, color = '#2d2d2d', widthButton=false}: Props) => {
+export const ButtonCalc = ({text, color = '#2d2d2d', widthButton=false, action}: Props) => {
   return (
 
-    <TouchableOpacity>
+    <TouchableOpacity
+        onPress={()=>action(text)}
+     >
         <View style={{
             ...styles.button, 
             backgroundColor: color,
